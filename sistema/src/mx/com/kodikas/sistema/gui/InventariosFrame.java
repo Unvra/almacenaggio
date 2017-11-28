@@ -69,6 +69,7 @@ public class InventariosFrame extends javax.swing.JInternalFrame {
             Double precioCompra = producto.getPrecioCompraProducto();
             Double precioVenta = producto.getPrecioVentaProducto();
             Double existencias = producto.getStockProducto();
+            producto.setExistenciasProducto(existencias);
             
             modeloTabla.setValueAt(clave, i, 0);
             modeloTabla.setValueAt(producto, i, 1);
@@ -324,7 +325,7 @@ public class InventariosFrame extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBorrarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -369,6 +370,7 @@ public class InventariosFrame extends javax.swing.JInternalFrame {
         double cantidadActual = productoSeleccionado.getStockProducto();
         double nuevaCantidad = cantidadActual + existencia;
         base.actualizarInventario(productoSeleccionado, nuevaCantidad);
+        
         limpiarTabla();
         cargarModeloTabla();
         
@@ -393,6 +395,7 @@ public class InventariosFrame extends javax.swing.JInternalFrame {
             Double precioCompra = producto.getPrecioCompraProducto();
             Double precioVenta = producto.getPrecioVentaProducto();
             Double existencias = producto.getStockProducto();
+            producto.setExistenciasProducto(existencias);
             
             modeloTabla.setValueAt(clave, i, 0);
             modeloTabla.setValueAt(producto, i, 1);

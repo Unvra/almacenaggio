@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import mx.com.kodikas.sistema.pojos.CategoriaProd;
 import mx.com.kodikas.sistema.pojos.DetalleVenta;
 import mx.com.kodikas.sistema.pojos.Producto;
@@ -472,6 +473,39 @@ public class BaseDatos {
         }
         
        return listaProveedores;
+    }
+    
+    public void VentaCantidad(double cantidad,Producto producto ){
+        double ven=0.0;
+        try {
+           
+            String sql="SELECT stock_proc FROM cat_productos where id_prod = ?";
+            prepSt=conn.prepareStatement(sql);
+            
+            prepSt.setString(1,producto.getIdProducto() );
+            
+            rs=prepSt.executeQuery();
+            double stock = rs.getDouble("stock_prod");
+            if(cantidad>stock){
+                JOptionPane.showMessageDialog(null, "demaciado");
+                ven=stock;
+                return;
+            }else{
+                ven=stock-cantidad;  
+            }
+            sql = "UPDATE cat_productos SET stock_prod = ? WHERE id_prod=?";
+            
+            prepSt = conn.prepareStatement(sql);
+            
+            prepSt.setDouble(1, ven);
+            prepSt.setString(2, producto.getIdProducto());
+            
+            prepSt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
     }
     
     
