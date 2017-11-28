@@ -71,7 +71,7 @@ public class InventariosFrame extends javax.swing.JInternalFrame {
             Double existencias = producto.getStockProducto();
             
             modeloTabla.setValueAt(clave, i, 0);
-            modeloTabla.setValueAt(nombre, i, 1);
+            modeloTabla.setValueAt(producto, i, 1);
             modeloTabla.setValueAt(unidad, i, 2);
             modeloTabla.setValueAt(precioCompra, i, 3);
             modeloTabla.setValueAt(precioVenta, i, 4);
@@ -395,7 +395,7 @@ public class InventariosFrame extends javax.swing.JInternalFrame {
             Double existencias = producto.getStockProducto();
             
             modeloTabla.setValueAt(clave, i, 0);
-            modeloTabla.setValueAt(nombre, i, 1);
+            modeloTabla.setValueAt(producto, i, 1);
             modeloTabla.setValueAt(unidad, i, 2);
             modeloTabla.setValueAt(precioCompra, i, 3);
             modeloTabla.setValueAt(precioVenta, i, 4);
