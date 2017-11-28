@@ -191,7 +191,7 @@ public class BaseDatos {
             
             
             
-            String sql = "UPDATE cat_productos SET existencias_prod = ? WHERE id_prod=?";
+            String sql = "UPDATE cat_productos SET stock_prod = ? WHERE id_prod=?";
             
             prepSt = conn.prepareStatement(sql);
             

@@ -68,10 +68,10 @@ public class InventariosFrame extends javax.swing.JInternalFrame {
             String unidad = producto.getUnidadProducto();
             Double precioCompra = producto.getPrecioCompraProducto();
             Double precioVenta = producto.getPrecioVentaProducto();
-            Double existencias = producto.getExistenciasProducto();
+            Double existencias = producto.getStockProducto();
             
             modeloTabla.setValueAt(clave, i, 0);
-            modeloTabla.setValueAt(producto, i, 1);
+            modeloTabla.setValueAt(nombre, i, 1);
             modeloTabla.setValueAt(unidad, i, 2);
             modeloTabla.setValueAt(precioCompra, i, 3);
             modeloTabla.setValueAt(precioVenta, i, 4);
@@ -366,7 +366,7 @@ public class InventariosFrame extends javax.swing.JInternalFrame {
     private void btnAgregarExistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarExistenciaActionPerformed
         
         double existencia = Double.parseDouble(campoAgregarExistencia.getText());
-        double cantidadActual = productoSeleccionado.getExistenciasProducto();
+        double cantidadActual = productoSeleccionado.getStockProducto();
         double nuevaCantidad = cantidadActual + existencia;
         base.actualizarInventario(productoSeleccionado, nuevaCantidad);
         limpiarTabla();
@@ -392,10 +392,10 @@ public class InventariosFrame extends javax.swing.JInternalFrame {
             String unidad = producto.getUnidadProducto();
             Double precioCompra = producto.getPrecioCompraProducto();
             Double precioVenta = producto.getPrecioVentaProducto();
-            Double existencias = producto.getExistenciasProducto();
+            Double existencias = producto.getStockProducto();
             
             modeloTabla.setValueAt(clave, i, 0);
-            modeloTabla.setValueAt(producto, i, 1);
+            modeloTabla.setValueAt(nombre, i, 1);
             modeloTabla.setValueAt(unidad, i, 2);
             modeloTabla.setValueAt(precioCompra, i, 3);
             modeloTabla.setValueAt(precioVenta, i, 4);
